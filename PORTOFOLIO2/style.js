@@ -1,4 +1,13 @@
-function myMenuFunction() {
+// function myMenuFunction() {
+//   var menuBth = document.getElementById("myNavMenu");
+
+//   if (menuBth.className === "nav-menu") {
+//     menuBth.className += "responsive";
+//   } else {
+//     menuBth.className = "nav-menu";
+//   }
+// }
+function toggleResponsiveClass() {
   var menuBth = document.getElementById("myNavMenu");
 
   if (menuBth.className === "nav-menu") {
@@ -8,6 +17,21 @@ function myMenuFunction() {
   }
 }
 
+function updateMenuClass() {
+  var menuBtn = document.getElementById("myNavMenu");
+
+  if (window.innerWidth > 900) {
+    menuBtn.classList.remove("nav-menuresponsive");
+    menuBtn.classList.add("nav-menu");
+  } else {
+    if (!menuBtn.classList.contains("nav-menuresponsive")) {
+      menuBtn.classList.add("nav-menu");
+    }
+  }
+}
+
+window.addEventListener("resize", updateMenuClass);
+
 // Dark Mode
 
 const body = document.querySelector("body"),
@@ -16,14 +40,6 @@ const body = document.querySelector("body"),
 toggleSwitch.addEventListener("click", () => {
   body.classList.toggle("dark");
 });
-
-// function setDarkMode(isDark) {
-//   if (isDark) {
-//     document.body.setAttribute("id", "darkmode");
-//   } else {
-//     document.body.setAttribute("id", "");
-//   }
-// }
 
 // Typing effect
 
